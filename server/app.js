@@ -1,8 +1,3 @@
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-	console.log("Server started");
-});
 
 const express = require('express');
 const app = express();
@@ -25,3 +20,13 @@ app.get('/krovati/:type/:subtype', (req, res) => {
 app.listen(3000, () => {
 	console.log('Server started on http://localhost:3000');
 });
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+	console.log("Server started");
+});
+
+const path = require('path');
+
+app.use(express.static(path.join(__dirname, 'public')));

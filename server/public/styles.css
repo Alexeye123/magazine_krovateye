@@ -7,10 +7,26 @@ body {
 
 /* верх */
 .topbar {
-  background: #eee;
-  padding: 8px 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  color: white;
+  font-size: 14px;
+
+  animation: topbarAnim 3.5s ease-in-out infinite;
+}
+
+/* приятная анимация (синий стиль) */
+@keyframes topbarAnim {
+  0%   { background: #1e3a8a; }
+  50%  { background: #3b82f6; }
+  100% { background: #1e3a8a; }
+}
+
+.topbar-right span {
+  margin-left: 12px;
+  cursor: pointer;
 }
 
 /* шапка */

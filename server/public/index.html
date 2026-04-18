@@ -1,28 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
+	<meta charset="UTF-8">
 	<title>Магазин кроватей</title>
-	<link rel="stylesheet" href="/styles.css">
+	<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-	<div class="topbar">
-		<div class="topbar-left">
-			Возможна оплата в 3 или 4 рассрочки без комиссии
-		</div>
 
-		<div class="topbar-right">
+	<!-- 🔝 ВЕРХНЯЯ ПОЛОСА -->
+	<div class="topbar">
+		<div>Возможна оплата в 3 или 4 рассрочки без комиссии</div>
+		<div class="socials">
 			<span>📘</span>
 			<span>📸</span>
 			<span>🎵</span>
 		</div>
-	</div>
-
-	<!-- 🔝 ВЕРХНЯЯ ПОЛОСА -->
-	<div class="topbar">
-		<span>📍 Москва</span>
-		<span>📞 8 (800) 123-45-67</span>
 	</div>
 
 	<!-- 🔝 ШАПКА -->
@@ -32,49 +26,23 @@
 		<div id="cart">🛒 0</div>
 	</header>
 
+	<!-- 🔽 НАВИГАЦИЯ -->
 	<nav class="nav">
-		<div class="nav-left">
-			<div class="catalog">
-				☰ Каталог
-				<div class="dropdown">
-					<a href="#">Кровати</a>
-					<a href="#">Матрасы</a>
-					<a href="#">Диваны</a>
-					<a href="#">Шкафы</a>
-				</div>
+		<div class="catalog">
+			☰ Каталог
+			<div class="dropdown">
+				<a href="#">Кровати</a>
+				<a href="#">Матрасы</a>
+				<a href="#">Диваны</a>
+				<a href="#">Шкафы</a>
 			</div>
 		</div>
 
-		<div class="nav-right">
-			<a href="#">О фабрике</a>
+		<div class="nav-links">
 			<a href="#">Оплата</a>
 			<a href="#">Доставка</a>
-			<a href="#">Сборка</a>
-			<a href="#">Гарантия</a>
-			<a href="#" class="sale">% Акции</a>
 			<a href="#">Контакты</a>
 		</div>
-	</nav>
-
-	<!-- 📂 МЕНЮ -->
-	<nav class="menu">
-
-		<div class="dropdown">
-			Металлические
-			<div class="dropdown-content">
-				<div onclick="loadCategory('metallicheskie/odnojarusnye')">Одноярусные</div>
-				<div onclick="loadCategory('metallicheskie/dvuhjarusnye-s-divanom')">С диваном</div>
-			</div>
-		</div>
-
-		<div class="dropdown">
-			ЛДСП
-			<div class="dropdown-content">
-				<div onclick="loadCategory('ldsp/odnojarusnye')">Одноярусные</div>
-				<div onclick="loadCategory('ldsp/krovati-cherdaki')">Чердаки</div>
-			</div>
-		</div>
-
 	</nav>
 
 	<!-- 🖼 БАННЕР -->
@@ -83,108 +51,50 @@
 		<button>Подобрать</button>
 	</section>
 
-	<div class="filters">
-		<input type="number" id="minPrice" placeholder="От">
-		<input type="number" id="maxPrice" placeholder="До">
-		<button onclick="applyFilter()">Фильтр</button>
-	</div>
-
-	<!-- 🧱 КАТЕГОРИИ -->
-	<section class="categories">
-		<div class="cat">Металлические</div>
-		<div class="cat">ЛДСП</div>
-		<div class="cat">С диваном</div>
-		<div class="cat">Чердаки</div>
-	</section>
-
 	<!-- 📦 КАТАЛОГ -->
-	<main>
-		<div class="layout">
-
-			<!-- 📂 ЛЕВОЕ МЕНЮ -->
-			<aside class="sidebar">
-				<h3>Категории</h3>
-				<div onclick="loadCategory('metallicheskie/odnojarusnye')">Металлические</div>
-				<div onclick="loadCategory('ldsp/krovati-cherdaki')">ЛДСП</div>
-
-				<h3>Цена</h3>
-				<input type="number" id="minPrice" placeholder="От">
-				<input type="number" id="maxPrice" placeholder="До">
-				<button onclick="applyFilter()">Применить</button>
-			</aside>
-
-			<!-- 📦 КАТАЛОГ -->
-			<main class="content">
-				<div id="products"></div>
-			</main>
-
-		</div>
-	</main>
+	<main class="products" id="products"></main>
 
 	<!-- 🔻 ПОДВАЛ -->
 	<footer class="footer">
-		<p>© Магазин кроватей 2026</p>
+		© Магазин кроватей 2026
 	</footer>
 
 	<script>
-		let cart = [];
-		let allProducts = [];
+		const products = [
+			{ id: 1, name: "Кровать Лофт", price: 12000, oldPrice: 15000, image: "https://via.placeholder.com/300" },
+			{ id: 2, name: "Кровать Минимал", price: 18000, oldPrice: 22000, image: "https://via.placeholder.com/300" },
+			{ id: 3, name: "Кровать Дабл", price: 25000, oldPrice: 30000, image: "https://via.placeholder.com/300" },
+			{ id: 4, name: "Кровать Премиум", price: 32000, oldPrice: 40000, image: "https://via.placeholder.com/300" }
+		];
 
-		function loadProducts(url = '/products') {
-			fetch(url)
-				.then(res => res.json())
-				.then(data => {
-					allProducts = data;
-					renderProducts(data);
-				});
-		}
+		let cart = 0;
 
-		function renderProducts(data) {
-			const container = document.getElementById('products');
+		function render() {
+			const container = document.getElementById("products");
 			container.innerHTML = "";
 
-			data.forEach(p => {
-				const div = document.createElement('div');
-				div.className = "card";
+			products.forEach(p => {
+				const el = document.createElement("div");
+				el.className = "card";
 
-				div.innerHTML = `
-      <div style="position:relative">
-
-        <div class="badge">
-          -${Math.round((1 - p.price / p.oldPrice) * 100)}%
-        </div>
-
-        <img src="${p.image}">
-
-        <h3>${p.name}</h3>
-
-        <p>
-          <span class="old">${p.oldPrice} ₽</span><br>
-          <b>${p.price} ₽</b>
-        </p>
-
-        <p class="rating">⭐ ${p.rating}</p>
-
-        <button onclick="addToCart(${p.id})">В корзину</button>
-
-      </div>
+				el.innerHTML = `
+      <div class="badge">-${Math.round((1 - p.price / p.oldPrice) * 100)}%</div>
+      <img src="${p.image}">
+      <h3>${p.name}</h3>
+      <p><span class="old">${p.oldPrice} ₽</span><br><b>${p.price} ₽</b></p>
+      <button onclick="addToCart()">В корзину</button>
     `;
 
-				container.appendChild(div);
+				container.appendChild(el);
 			});
 		}
 
-		function loadCategory(cat) {
-			loadProducts('/krovati/' + cat);
+		function addToCart() {
+			cart++;
+			document.getElementById("cart").innerText = "🛒 " + cart;
 		}
 
-		function addToCart(id) {
-			cart.push(id);
-			document.getElementById('cart').innerText = "🛒 " + cart.length;
-		}
-
-		// старт
-		loadProducts();
+		render();
 	</script>
 
 </body>

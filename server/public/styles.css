@@ -138,3 +138,58 @@ body {
 body {
   background: red !important;
 }
+.hero {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+/* слайды */
+.slider {
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+
+  /* эффект движения */
+  transform: scale(1);
+}
+
+.slide.active {
+  opacity: 1;
+  animation: zoom 8s linear;
+}
+
+/* плавное движение камеры */
+@keyframes zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+/* затемнение */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+/* текст */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 2;
+}

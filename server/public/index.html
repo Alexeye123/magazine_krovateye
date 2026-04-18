@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-<link rel="stylesheet" href="styles.css">
 
 <head>
 	<meta charset="UTF-8">
@@ -9,6 +8,7 @@
 </head>
 
 <body>
+	
 
 	<!-- 🔝 ВЕРХНЯЯ ПОЛОСА -->
 	<div class="topbar">
@@ -46,10 +46,28 @@
 		</div>
 	</nav>
 
-	<!-- 🖼 БАННЕР -->
-	<section class="banner">
-		<h2>Подберите идеальную кровать</h2>
-		<button>Подобрать</button>
+	<!-- 🖼 слайдер -->
+	<section class="hero">
+		<div class="slider">
+
+			<div class="slide active"
+				style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470')"></div>
+
+			<div class="slide"
+				style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')"></div>
+
+			<div class="slide"
+				style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')"></div>
+
+			<div class="slide"
+				style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e')"></div>
+
+		</div>
+
+		<div class="hero-content">
+			<h2>Подберите идеальную кровать</h2>
+			<button>Подобрать</button>
+		</div>
 	</section>
 
 	<!-- 📦 КАТАЛОГ -->
@@ -96,6 +114,16 @@
 		}
 
 		render();
+	</script>
+	<script>
+		const slides = document.querySelectorAll('.slide');
+		let index = 0;
+
+		setInterval(() => {
+			slides[index].classList.remove('active');
+			index = (index + 1) % slides.length;
+			slides[index].classList.add('active');
+		}, 4000);
 	</script>
 
 </body>

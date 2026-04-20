@@ -193,3 +193,44 @@ body {
   text-align: center;
   z-index: 2;
 }
+
+/* стрелки */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  padding: 10px;
+  cursor: pointer;
+  z-index: 3;
+  border-radius: 50%;
+}
+
+.arrow.left { left: 20px; }
+.arrow.right { right: 20px; }
+
+/* точки */
+.dots {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+}
+
+.dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.dots .active {
+  opacity: 1;
+}

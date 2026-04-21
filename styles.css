@@ -82,34 +82,58 @@ body {
   overflow: hidden;
 }
 
+/* камера */
 .camera {
-  display: flex;
-  width: 400%;
-  height: 100%;
-  animation: fly 20s linear infinite;
-}
-
-.scene {
+  position: absolute;
   width: 100%;
   height: 100%;
-  flex-shrink: 0;
-  background-size: cover;
-  background-position: center;
 }
 
-/* разные сцены */
+/* сцены накладываются друг на друга */
+.scene {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0;
+  transform: scale(1.2);
+  animation: flyScene 20s infinite;
+}
+
+/* задержки для каждой сцены */
+.s1 { animation-delay: 0s; }
+.s2 { animation-delay: 5s; }
+.s3 { animation-delay: 10s; }
+.s4 { animation-delay: 15s; }
+
+/* картинки */
 .s1 { background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470"); }
 .s2 { background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"); }
 .s3 { background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e"); }
 .s4 { background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e"); }
 
-/* движение */
-@keyframes fly {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-100%); }
-  50% { transform: translateX(-200%); }
-  75% { transform: translateX(-300%); }
-  100% { transform: translateX(0); }
+/* магия пролёта */
+@keyframes flyScene {
+  0% {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+  10% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  60% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /* затемнение */
@@ -128,6 +152,7 @@ body {
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
+  z-index: 2;
 }
 
 /* PRODUCTS */

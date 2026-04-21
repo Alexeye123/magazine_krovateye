@@ -9,14 +9,11 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f6f7fb;
-
   display: flex;
   flex-direction: column;
 }
 
-/* главный контейнер */
+/* КОНТЕНТ ТЯНЕТСЯ */
 .page {
   flex: 1;
   display: flex;
@@ -112,6 +109,7 @@ body {
   position: relative;
   height: 400px;
   overflow: hidden;
+  z-index: 0; /* важно */
 }
 
 .track {
@@ -152,20 +150,19 @@ body {
 /* ===== CATEGORY GRID ===== */
 .category-grid {
   max-width: 1400px;
-  margin: 60px auto;
+  margin: 40px auto;
   padding: 0 20px;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 .category-card {
   position: relative;
-  overflow: hidden;
   border-radius: 16px;
-  height: 420px;
-  cursor: pointer;
+  overflow: hidden;
+  aspect-ratio: 4 / 5; /* вместо фикс высоты */
 }
 
 .category-card img {
@@ -194,10 +191,13 @@ body {
 
 /* ===== PRODUCTS ===== */
 .products {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .card {
@@ -205,7 +205,10 @@ body {
   padding: 10px;
   border-radius: 10px;
   position: relative;
-  transition: 0.2s;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .card:hover {
@@ -238,7 +241,7 @@ body {
   background: #1c1c1c;
   color: #ccc;
   padding: 40px 20px 20px;
-  font-size: 14px;
+  margin-top: auto; /* ключ */
 }
 
 .footer-inner {

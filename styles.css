@@ -1,63 +1,41 @@
-/* ===== BASE ===== */
 * {
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
-
 body {
   margin: 0;
+  font-family: Arial;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
-/* КОНТЕНТ ТЯНЕТСЯ */
 .page {
   flex: 1;
-  display: flex;
-  flex-direction: column;
 }
 
-/* ===== TOPBAR ===== */
+/* TOPBAR */
 .topbar {
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
   color: white;
-  font-size: 14px;
   background: linear-gradient(90deg, red, orange);
 }
 
-.socials span {
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-/* ===== HEADER ===== */
+/* HEADER */
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 15px 20px;
   background: white;
-  border-bottom: 1px solid #eee;
-}
-
-.logo {
-  font-weight: bold;
-  font-size: 22px;
 }
 
 .header input {
   width: 40%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
 }
 
-/* ===== NAV ===== */
+/* NAV */
 .nav {
   display: flex;
   justify-content: space-between;
@@ -68,136 +46,78 @@ body {
 
 .catalog {
   position: relative;
-  cursor: pointer;
 }
 
 .dropdown {
   display: none;
   position: absolute;
-  top: 35px;
-  left: 0;
+  top: 30px;
   background: white;
   color: black;
-  border-radius: 8px;
-  min-width: 150px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  overflow: hidden;
-  z-index: 10;
-}
-
-.dropdown a {
-  display: block;
-  padding: 10px;
-}
-
-.dropdown a:hover {
-  background: #f5f5f5;
 }
 
 .catalog:hover .dropdown {
   display: block;
 }
 
-.nav-links a {
-  margin-left: 20px;
-  color: white;
-  text-decoration: none;
-}
-
-/* ===== HERO (АНИМАЦИЯ) ===== */
+/* HERO */
 .hero {
-  position: relative;
   height: 260px;
   overflow: hidden;
-  z-index: 0; /* важно */
 }
 
 .track {
   display: flex;
   width: 800%;
   height: 100%;
-  animation: flyLinear 60s linear infinite;
+  animation: fly 60s linear infinite;
 }
 
 .frame {
   width: 100%;
-  height: 100%;
-  flex-shrink: 0;
   background-size: cover;
-  background-position: center;
-  transform: scale(1.1);
 }
 
-/* фон */
-.f1 { background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470"); }
-.f2 { background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"); }
-.f3 { background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e"); }
-.f4 { background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e"); }
-
-@keyframes flyLinear {
+@keyframes fly {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 
-/* затемнение */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-}
-
-/* ===== CATEGORY GRID ===== */
+/* CATEGORY */
 .category-grid {
-  max-width: 1400px;
-  margin: 40px auto;
-  padding: 0 20px;
-
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  padding: 40px;
 }
 
 .category-card {
   position: relative;
-  border-radius: 16px;
   overflow: hidden;
-  aspect-ratio: 4 / 5; /* вместо фикс высоты */
+  border-radius: 12px;
 }
 
 .category-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
 }
 
-.category-card:hover img {
-  transform: scale(1.05);
-}
-
-.category-card::after {
-  content: "";
+.category-info {
   position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.25);
-  transition: 0.3s;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  padding: 15px;
+  background: rgba(0,0,0,0.5);
 }
 
-.category-card:hover::after {
-  background: rgba(0,0,0,0.1);
-}
-
-/* ===== PRODUCTS ===== */
+/* PRODUCTS */
 .products {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px;
-
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 в ряд */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  padding: 20px;
 }
 
 .card {
@@ -205,140 +125,23 @@ body {
   padding: 10px;
   border-radius: 10px;
   position: relative;
-
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-}
-
-.card img {
-  width: 100%;
-  border-radius: 6px;
 }
 
 .badge {
   position: absolute;
-  top: 10px;
-  left: 10px;
   background: red;
   color: white;
-  padding: 5px 8px;
-  font-size: 12px;
-  border-radius: 4px;
+  padding: 5px;
 }
 
 .old {
   text-decoration: line-through;
-  color: gray;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 .footer {
-  background: #1c1c1c;
-  color: #ccc;
-  padding: 40px 20px 20px;
-  margin-top: auto; /* ключ */
-}
-
-.footer-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  margin-bottom: 30px;
-}
-
-.footer-title {
+  background: #222;
   color: white;
-  margin-bottom: 15px;
-  font-size: 15px;
-}
-
-.footer a {
-  display: block;
-  color: #aaa;
-  text-decoration: none;
-  margin-bottom: 8px;
-  transition: 0.2s;
-}
-
-.footer a:hover {
-  color: white;
-}
-
-.footer-bottom {
-  border-top: 1px solid #333;
-  padding-top: 15px;
-  text-align: center;
-  font-size: 13px;
-  color: #777;
-}
-
-/* ===== АДАПТИВ ===== */
-@media (max-width: 900px) {
-  .products {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .products {
-    grid-template-columns: 1fr;
-  }
-}
-
-  .category-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-
-  .category-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .header input {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  .header {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .category-card {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  aspect-ratio: 4 / 5;
-}
-
-/* текст внутри */
-.category-info {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-
   padding: 20px;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-
-  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  margin-top: auto;
 }

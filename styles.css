@@ -82,56 +82,37 @@ body {
   overflow: hidden;
 }
 
-/* сцены */
-.scene {
-  position: absolute;
+/* длинная дорожка */
+.track {
+  display: flex;
+  width: 800%; /* 8 кадров */
+  height: 100%;
+  animation: flyLinear 60s linear infinite;
+}
+
+/* кадры */
+.frame {
   width: 100%;
   height: 100%;
+  flex-shrink: 0;
+
   background-size: cover;
   background-position: center;
 
-  opacity: 0;
+  /* лёгкий эффект полёта */
   transform: scale(1.1);
-
-  animation: flyRelax 40s infinite;
 }
 
-/* задержки (по 10 сек на сцену) */
-.s1 { animation-delay: 0s; }
-.s2 { animation-delay: 10s; }
-.s3 { animation-delay: 20s; }
-.s4 { animation-delay: 30s; }
+/* пейзажи */
+.f1 { background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470"); }
+.f2 { background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"); }
+.f3 { background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e"); }
+.f4 { background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e"); }
 
-/* изображения */
-.s1 { background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470"); }
-.s2 { background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"); }
-.s3 { background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e"); }
-.s4 { background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e"); }
-
-/* плавная анимация */
-@keyframes flyRelax {
-  0% {
-    opacity: 0;
-    transform: scale(1.15) translateY(20px);
-  }
-
-  10% {
-    opacity: 1;
-  }
-
-  40% {
-    opacity: 1;
-    transform: scale(1.05) translateY(0);
-  }
-
-  60% {
-    opacity: 0;
-    transform: scale(1) translateY(-20px);
-  }
-
-  100% {
-    opacity: 0;
-  }
+/* бесконечное движение */
+@keyframes flyLinear {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 /* затемнение */

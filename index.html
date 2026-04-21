@@ -9,8 +9,7 @@
 
 <body>
 
-
-	<!-- 🔝 ВЕРХНЯЯ ПОЛОСА -->
+	<!-- TOPBAR -->
 	<div class="topbar">
 		<div>Возможна оплата в 3 или 4 рассрочки без комиссии</div>
 		<div class="socials">
@@ -20,14 +19,14 @@
 		</div>
 	</div>
 
-	<!-- 🔝 ШАПКА -->
+	<!-- HEADER -->
 	<header class="header">
 		<div class="logo">🛏 BED SHOP</div>
 		<input type="text" placeholder="Поиск...">
 		<div id="cart">🛒 0</div>
 	</header>
 
-	<!-- 🔽 НАВИГАЦИЯ -->
+	<!-- NAV -->
 	<nav class="nav">
 		<div class="catalog">
 			☰ Каталог
@@ -46,27 +45,14 @@
 		</div>
 	</nav>
 
-	<!-- 🖼 слайдер -->
+	<!-- 🚀 ПРОЛЁТ -->
 	<section class="hero">
-		<div class="slider">
-
-			<div class="slide active"
-				style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470')"></div>
-			<div class="slide"
-				style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')"></div>
-			<div class="slide"
-				style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')"></div>
-			<div class="slide"
-				style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e')"></div>
-
+		<div class="camera">
+			<div class="scene s1"></div>
+			<div class="scene s2"></div>
+			<div class="scene s3"></div>
+			<div class="scene s4"></div>
 		</div>
-
-		<!-- стрелки -->
-		<div class="arrow left" onclick="prevSlide()">❮</div>
-		<div class="arrow right" onclick="nextSlide()">❯</div>
-
-		<!-- точки -->
-		<div class="dots"></div>
 
 		<div class="hero-content">
 			<h2>Подберите идеальную кровать</h2>
@@ -74,10 +60,10 @@
 		</div>
 	</section>
 
-	<!-- 📦 КАТАЛОГ -->
+	<!-- PRODUCTS -->
 	<main class="products" id="products"></main>
 
-	<!-- 🔻 ПОДВАЛ -->
+	<!-- FOOTER -->
 	<footer class="footer">
 		© Магазин кроватей 2026
 	</footer>
@@ -118,62 +104,6 @@
 		}
 
 		render();
-	</script>
-	<script>
-		const slides = document.querySelectorAll('.slide');
-		const dotsContainer = document.querySelector('.dots');
-
-		let index = 0;
-		let interval;
-
-		// создаём точки
-		slides.forEach((_, i) => {
-			const dot = document.createElement('span');
-			dot.onclick = () => goToSlide(i);
-			dotsContainer.appendChild(dot);
-		});
-
-		const dots = document.querySelectorAll('.dots span');
-
-		function showSlide(i) {
-			slides.forEach(s => s.classList.remove('active'));
-			dots.forEach(d => d.classList.remove('active'));
-
-			slides[i].classList.add('active');
-			dots[i].classList.add('active');
-		}
-
-		function nextSlide() {
-			index = (index + 1) % slides.length;
-			showSlide(index);
-		}
-
-		function prevSlide() {
-			index = (index - 1 + slides.length) % slides.length;
-			showSlide(index);
-		}
-
-		function goToSlide(i) {
-			index = i;
-			showSlide(index);
-		}
-
-		// автопрокрутка
-		function startSlider() {
-			interval = setInterval(nextSlide, 4000);
-		}
-
-		function stopSlider() {
-			clearInterval(interval);
-		}
-
-		// пауза при наведении
-		document.querySelector('.hero').addEventListener('mouseenter', stopSlider);
-		document.querySelector('.hero').addEventListener('mouseleave', startSlider);
-
-		// старт
-		showSlide(index);
-		startSlider();
 	</script>
 
 </body>

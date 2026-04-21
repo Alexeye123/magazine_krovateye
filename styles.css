@@ -4,20 +4,14 @@ body {
   background: #f6f7fb;
 }
 
-/* 🔝 topbar */
+/* TOPBAR */
 .topbar {
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
   color: white;
   font-size: 14px;
-  animation: topbarAnim 3s infinite;
-}
-
-@keyframes topbarAnim {
-  0% { background: red; }
-  50% { background: orange; }
-  100% { background: red; }
+  background: linear-gradient(90deg, red, orange);
 }
 
 .socials span {
@@ -25,7 +19,7 @@ body {
   cursor: pointer;
 }
 
-/* 🔝 header */
+/* HEADER */
 .header {
   display: flex;
   justify-content: space-between;
@@ -43,7 +37,7 @@ body {
   padding: 10px;
 }
 
-/* 🔽 nav */
+/* NAV */
 .nav {
   display: flex;
   justify-content: space-between;
@@ -64,7 +58,6 @@ body {
   background: white;
   color: black;
   border-radius: 8px;
-  overflow: hidden;
 }
 
 .dropdown a {
@@ -82,97 +75,41 @@ body {
   text-decoration: none;
 }
 
-/* 🖼 banner */
-.banner {
-  text-align: center;
-  padding: 50px;
-  background: linear-gradient(135deg, purple, blue);
-  color: white;
-}
-
-/* 📦 products */
-.products {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 20px;
-}
-
-.card {
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
-  position: relative;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-.card img {
-  width: 100%;
-}
-
-.badge {
-  position: absolute;
-  background: red;
-  color: white;
-  padding: 5px;
-  top: 10px;
-  left: 10px;
-}
-
-.old {
-  text-decoration: line-through;
-  color: gray;
-}
-
-/* 🔻 footer */
-.footer {
-  text-align: center;
-  padding: 20px;
-  background: #222;
-  color: white;
-}
-body {
-  background: red !important;
-}
+/* 🚀 ПРОЛЁТ */
 .hero {
   position: relative;
   height: 400px;
   overflow: hidden;
 }
 
-/* слайды */
-.slider {
+.camera {
+  display: flex;
+  width: 400%;
   height: 100%;
-  position: relative;
+  animation: fly 20s linear infinite;
 }
 
-.slide {
-  position: absolute;
+.scene {
   width: 100%;
   height: 100%;
+  flex-shrink: 0;
   background-size: cover;
   background-position: center;
-
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-
-  /* эффект движения */
-  transform: scale(1);
 }
 
-.slide.active {
-  opacity: 1;
-  animation: zoom 8s linear;
-}
+/* разные сцены */
+.s1 { background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470"); }
+.s2 { background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"); }
+.s3 { background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e"); }
+.s4 { background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e"); }
 
-/* плавное движение камеры */
-@keyframes zoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.1); }
+/* движение */
+@keyframes fly {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-100%); }
+  50% { transform: translateX(-200%); }
+  75% { transform: translateX(-300%); }
+  100% { transform: translateX(0); }
 }
 
 /* затемнение */
@@ -191,46 +128,42 @@ body {
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
-  z-index: 2;
 }
 
-/* стрелки */
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 30px;
-  color: white;
-  background: rgba(0,0,0,0.4);
-  padding: 10px;
-  cursor: pointer;
-  z-index: 3;
-  border-radius: 50%;
+/* PRODUCTS */
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
 }
 
-.arrow.left { left: 20px; }
-.arrow.right { right: 20px; }
-
-/* точки */
-.dots {
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  text-align: center;
-  z-index: 3;
-}
-
-.dots span {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin: 5px;
+.card {
   background: white;
-  border-radius: 50%;
-  opacity: 0.5;
-  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-.dots .active {
-  opacity: 1;
+.card img {
+  width: 100%;
+}
+
+.badge {
+  position: absolute;
+  background: red;
+  color: white;
+  padding: 5px;
+}
+
+.old {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: white;
 }

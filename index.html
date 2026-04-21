@@ -9,77 +9,111 @@
 
 <body>
 
-	<!-- TOPBAR -->
-	<div class="topbar">
-		<div>Возможна оплата в 3 или 4 рассрочки без комиссии</div>
-		<div class="socials">
-			<span>📘</span>
-			<span>📸</span>
-			<span>🎵</span>
-		</div>
-	</div>
+	<div class="page">
 
-	<!-- HEADER -->
-	<header class="header">
-		<div class="logo">🛏 BED SHOP</div>
-		<input type="text" placeholder="Поиск...">
-		<div id="cart">🛒 0</div>
-	</header>
-
-	<!-- NAV -->
-	<nav class="nav">
-		<div class="catalog">
-			☰ Каталог
-			<div class="dropdown">
-				<a href="#">Кровати</a>
-				<a href="#">Матрасы</a>
-				<a href="#">Диваны</a>
-				<a href="#">Шкафы</a>
+		<!-- TOPBAR -->
+		<div class="topbar">
+			<div>Возможна оплата в 3 или 4 рассрочки без комиссии</div>
+			<div class="socials">
+				<span>📘</span>
+				<span>📸</span>
+				<span>🎵</span>
 			</div>
 		</div>
 
-		<div class="nav-links">
-			<a href="#">Оплата</a>
-			<a href="#">Доставка</a>
-			<a href="#">Контакты</a>
-		</div>
-	</nav>
+		<!-- HEADER -->
+		<header class="header">
+			<div class="logo">🛏 BED SHOP</div>
+			<input type="text" placeholder="Поиск...">
+			<div id="cart">🛒 0</div>
+		</header>
 
-	<!-- 🚀 ПРОЛЁТ -->
-	<section class="hero">
-		<div class="track">
-			<!-- первый набор -->
-			<div class="frame f1"></div>
-			<div class="frame f2"></div>
-			<div class="frame f3"></div>
-			<div class="frame f4"></div>
+		<!-- NAV -->
+		<nav class="nav">
+			<div class="catalog">
+				☰ Каталог
+				<div class="dropdown">
+					<a href="#">Кровати</a>
+					<a href="#">Матрасы</a>
+					<a href="#">Диваны</a>
+					<a href="#">Шкафы</a>
+				</div>
+			</div>
 
-			<!-- дубликат для бесконечности -->
-			<div class="frame f1"></div>
-			<div class="frame f2"></div>
-			<div class="frame f3"></div>
-			<div class="frame f4"></div>
-		</div>
+			<div class="nav-links">
+				<a href="#">Оплата</a>
+				<a href="#">Доставка</a>
+				<a href="#">Контакты</a>
+			</div>
+		</nav>
 
-		<div class="category-grid">
-			<div class="category-card"><img src="img/1.jpg" alt=""></div>
-			<div class="category-card"><img src="img/2.jpg" alt=""></div>
-			<div class="category-card"><img src="img/3.jpg" alt=""></div>
-			<div class="category-card"><img src="img/4.jpg" alt=""></div>
-			<div class="category-card"><img src="img/5.jpg" alt=""></div>
-			<div class="category-card"><img src="img/6.jpg" alt=""></div>
-		</div>
+		<!-- HERO -->
+		<section class="hero">
+			<div class="track">
+				<div class="frame f1"></div>
+				<div class="frame f2"></div>
+				<div class="frame f3"></div>
+				<div class="frame f4"></div>
 
-		<div class="hero-content">
-		</div>
-	</section>
+				<div class="frame f1"></div>
+				<div class="frame f2"></div>
+				<div class="frame f3"></div>
+				<div class="frame f4"></div>
+			</div>
+		</section>
 
-	<!-- PRODUCTS -->
-	<main class="products" id="products"></main>
+		<!-- CATEGORY GRID (6 блоков) -->
+		<section class="category-grid">
+			<div class="category-card"><img src="img/1.jpg"></div>
+			<div class="category-card"><img src="img/2.jpg"></div>
+			<div class="category-card"><img src="img/3.jpg"></div>
+			<div class="category-card"><img src="img/4.jpg"></div>
+			<div class="category-card"><img src="img/5.jpg"></div>
+			<div class="category-card"><img src="img/6.jpg"></div>
+		</section>
 
-	<!-- FOOTER -->
+		<!-- PRODUCTS -->
+		<main class="products" id="products"></main>
+
+	</div>
+
+	<!-- FOOTER ВНЕ .page -->
 	<footer class="footer">
-		© Магазин кроватей 2026
+		<div class="footer-inner">
+
+			<div class="footer-grid">
+				<div>
+					<div class="footer-title">Каталог</div>
+					<a href="#">Кровати</a>
+					<a href="#">Матрасы</a>
+					<a href="#">Диваны</a>
+				</div>
+
+				<div>
+					<div class="footer-title">Покупателям</div>
+					<a href="#">Доставка</a>
+					<a href="#">Оплата</a>
+					<a href="#">Гарантия</a>
+				</div>
+
+				<div>
+					<div class="footer-title">Компания</div>
+					<a href="#">О нас</a>
+					<a href="#">Контакты</a>
+				</div>
+
+				<div>
+					<div class="footer-title">Контакты</div>
+					<a href="#">+7 (999) 123-45-67</a>
+					<a href="#">info@shop.ru</a>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				© Магазин кроватей 2026
+			</div>
+
+		</div>
 	</footer>
 
 	<script>
@@ -101,12 +135,12 @@
 				el.className = "card";
 
 				el.innerHTML = `
-      <div class="badge">-${Math.round((1 - p.price / p.oldPrice) * 100)}%</div>
-      <img src="${p.image}">
-      <h3>${p.name}</h3>
-      <p><span class="old">${p.oldPrice} ₽</span><br><b>${p.price} ₽</b></p>
-      <button onclick="addToCart()">В корзину</button>
-    `;
+          <div class="badge">-${Math.round((1 - p.price / p.oldPrice) * 100)}%</div>
+          <img src="${p.image}">
+          <h3>${p.name}</h3>
+          <p><span class="old">${p.oldPrice} ₽</span><br><b>${p.price} ₽</b></p>
+          <button onclick="addToCart()">В корзину</button>
+        `;
 
 				container.appendChild(el);
 			});

@@ -1,10 +1,29 @@
-body {
-  margin: 0;
-  font-family: Arial;
-  background: #f6f7fb;
+/* ===== BASE ===== */
+* {
+  box-sizing: border-box;
 }
 
-/* TOPBAR */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f6f7fb;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* главный контейнер */
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== TOPBAR ===== */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -19,12 +38,14 @@ body {
   cursor: pointer;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 15px 20px;
   background: white;
+  border-bottom: 1px solid #eee;
 }
 
 .logo {
@@ -35,9 +56,11 @@ body {
 .header input {
   width: 40%;
   padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
 
-/* NAV */
+/* ===== NAV ===== */
 .nav {
   display: flex;
   justify-content: space-between;
@@ -54,15 +77,24 @@ body {
 .dropdown {
   display: none;
   position: absolute;
-  top: 30px;
+  top: 35px;
+  left: 0;
   background: white;
   color: black;
   border-radius: 8px;
+  min-width: 150px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  overflow: hidden;
+  z-index: 10;
 }
 
 .dropdown a {
   display: block;
   padding: 10px;
+}
+
+.dropdown a:hover {
+  background: #f5f5f5;
 }
 
 .catalog:hover .dropdown {
@@ -75,41 +107,35 @@ body {
   text-decoration: none;
 }
 
-/* 🚀 ПРОЛЁТ */
+/* ===== HERO (АНИМАЦИЯ) ===== */
 .hero {
   position: relative;
   height: 400px;
   overflow: hidden;
 }
 
-/* длинная дорожка */
 .track {
   display: flex;
-  width: 800%; /* 8 кадров */
+  width: 800%;
   height: 100%;
   animation: flyLinear 60s linear infinite;
 }
 
-/* кадры */
 .frame {
   width: 100%;
   height: 100%;
   flex-shrink: 0;
-
   background-size: cover;
   background-position: center;
-
-  /* лёгкий эффект полёта */
   transform: scale(1.1);
 }
 
-/* пейзажи */
+/* фон */
 .f1 { background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470"); }
 .f2 { background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"); }
 .f3 { background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e"); }
 .f4 { background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e"); }
 
-/* бесконечное движение */
 @keyframes flyLinear {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -123,57 +149,7 @@ body {
   background: rgba(0,0,0,0.35);
 }
 
-/* текст */
-.hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  z-index: 2;
-}
-
-/* PRODUCTS */
-.products {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 20px;
-}
-
-.card {
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.card img {
-  width: 100%;
-}
-
-.badge {
-  position: absolute;
-  background: red;
-  color: white;
-  padding: 5px;
-}
-
-.old {
-  text-decoration: line-through;
-  color: gray;
-}
-
-/* FOOTER */
-.footer {
-  text-align: center;
-  padding: 20px;
-  background: #222;
-  color: white;
-}
-
-/* ===== CATEGORY GRID (6 блоков) ===== */
-
+/* ===== CATEGORY GRID ===== */
 .category-grid {
   max-width: 1400px;
   margin: 60px auto;
@@ -184,7 +160,6 @@ body {
   gap: 25px;
 }
 
-/* отдельный класс чтобы не ломать .card из products */
 .category-card {
   position: relative;
   overflow: hidden;
@@ -193,22 +168,18 @@ body {
   cursor: pointer;
 }
 
-/* изображение */
 .category-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-
   transition: transform 0.4s ease;
 }
 
-/* hover эффект */
 .category-card:hover img {
   transform: scale(1.05);
 }
 
-/* затемнение */
 .category-card::after {
   content: "";
   position: absolute;
@@ -221,15 +192,128 @@ body {
   background: rgba(0,0,0,0.1);
 }
 
-/* адаптив */
+/* ===== PRODUCTS ===== */
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: red;
+  color: white;
+  padding: 5px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.old {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #1c1c1c;
+  color: #ccc;
+  padding: 40px 20px 20px;
+  font-size: 14px;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.footer-title {
+  color: white;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.footer a {
+  display: block;
+  color: #aaa;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: 0.2s;
+}
+
+.footer a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+}
+
+/* ===== АДАПТИВ ===== */
 @media (max-width: 1000px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+
   .category-grid {
     grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header input {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 10px;
   }
 }

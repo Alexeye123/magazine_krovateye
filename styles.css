@@ -107,7 +107,7 @@ body {
 /* ===== HERO (АНИМАЦИЯ) ===== */
 .hero {
   position: relative;
-  height: 400px;
+  height: 260px;
   overflow: hidden;
   z-index: 0; /* важно */
 }
@@ -196,7 +196,7 @@ body {
   padding: 20px;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* 3 в ряд */
   gap: 20px;
 }
 
@@ -283,16 +283,8 @@ body {
 }
 
 /* ===== АДАПТИВ ===== */
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
   .products {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .category-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -301,6 +293,16 @@ body {
   .products {
     grid-template-columns: 1fr;
   }
+}
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
 
   .category-grid {
     grid-template-columns: 1fr;
@@ -319,4 +321,24 @@ body {
     flex-direction: column;
     gap: 10px;
   }
+
+  .category-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+
+/* текст внутри */
+.category-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  padding: 20px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
 }

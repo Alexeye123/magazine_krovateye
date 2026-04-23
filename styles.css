@@ -182,22 +182,19 @@ body {
   width: 30%;
   min-width: 250px;
   background: #f7f7f7;
-  padding: 20px;
+  padding: 0; /* ВАЖНО */
   border-right: 1px solid #ddd;
 }
 
 /* ГРУППЫ */
 .menu-group {
-  margin-bottom: 25px;
   border-bottom: 1px solid #ddd;
-  padding-bottom: 15px;
 }
 
 /* ЗАГОЛОВОК */
 .menu-title {
+  padding: 15px;
   font-weight: bold;
-  margin-bottom: 10px;
-  font-size: 16px;
 }
 
 /* ЯЧЕЙКИ */
@@ -206,27 +203,26 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  padding: 10px;
-  margin-bottom: 5px;
+  width: 100%;              /* ВАЖНО */
+  padding: 12px 15px;
 
   text-decoration: none;
   color: #333;
 
-  border-radius: 6px;
+  border-radius: 0;         /* убираем "карточность" */
   transition: 0.2s;
 }
 
 /* ХОВЕР */
 .menu-item:hover {
   background: #eaeaea;
-  color: red;
 }
 
 /* ПЛЮС */
 .plus {
+  margin-left: auto; /* прижимает вправо */
   font-weight: bold;
   color: #999;
-  transition: 0.2s;
 }
 
 .menu-item:hover .plus {

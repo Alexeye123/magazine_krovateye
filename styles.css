@@ -76,11 +76,11 @@ body {
   display: flex;
   width: 800%; /* важно для плавности */
   height: 100%;
-  animation: fly 40s linear infinite;
+  animation: fly 20s linear infinite;
 }
 
 .frame {
-    width: 100%;
+	min-width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
@@ -213,6 +213,8 @@ body {
 /* CONTENT */
 .content {
   width: 70%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* подгоняем твои блоки */

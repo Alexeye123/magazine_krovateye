@@ -9,98 +9,154 @@
 
 <body>
 
-	<div class="page">
+	<!-- TOPBAR -->
+	<div class="topbar">
+		<div>Возможна оплата в 3 или 4 рассрочки без комиссии</div>
+		<div class="socials">
+			<span>📘</span>
+			<span>📸</span>
+			<span>🎵</span>
+		</div>
+	</div>
 
-		<!-- TOPBAR -->
-		<div class="topbar">
-			<div>Возможна оплата в 3 или 4 рассрочки без комиссии</div>
-			<div class="socials">
-				<span>📘</span>
-				<span>📸</span>
-				<span>🎵</span>
+	<!-- HEADER -->
+	<header class="header">
+		<div class="logo">🛏 BED SHOP</div>
+		<input type="text" placeholder="Поиск...">
+		<div id="cart">🛒 0</div>
+	</header>
+
+	<!-- NAV -->
+	<nav class="nav">
+		<div class="catalog">
+			☰ Каталог
+			<div class="dropdown">
+				<a href="#">Кровати</a>
+				<a href="#">Матрасы</a>
+				<a href="#">Диваны</a>
+				<a href="#">Шкафы</a>
 			</div>
 		</div>
 
-		<!-- HEADER -->
-		<header class="header">
-			<div class="logo">🛏 BED SHOP</div>
-			<input type="text" placeholder="Поиск...">
-			<div id="cart">🛒 0</div>
-		</header>
+		<div class="nav-links">
+			<a href="#">Оплата</a>
+			<a href="#">Доставка</a>
+			<a href="#">Контакты</a>
+		</div>
+	</nav>
 
-		<!-- NAV -->
-		<nav class="nav">
-			<div class="catalog">
-				☰ Каталог
-				<div class="dropdown">
-					<a href="#">Кровати</a>
-					<a href="#">Матрасы</a>
-					<a href="#">Диваны</a>
-					<a href="#">Шкафы</a>
+	<div class="layout">
+
+		<!-- SIDEBAR -->
+		<aside class="sidebar">
+			<h3>Каталог</h3>
+
+			<div class="menu-group">
+				<div class="menu-title">Кровати</div>
+				<a href="#">Двуспальные</a>
+				<a href="#">Односпальные</a>
+				<a href="#">Детские</a>
+				<a href="#">Двухъярусные</a>
+			</div>
+
+			<div class="menu-group">
+				<div class="menu-title">Конструкция</div>
+				<a href="#">С ящиками</a>
+				<a href="#">С подъемным механизмом</a>
+			</div>
+
+			<div class="menu-group">
+				<div class="menu-title">Размер</div>
+				<a href="#">140x200</a>
+				<a href="#">160x200</a>
+			</div>
+		</aside>
+
+		<!-- ПРАВАЯ ЧАСТЬ -->
+		<div class="content">
+
+			<!-- HERO -->
+			<section class="hero">
+				<div class="track">
+					<div class="frame f1"></div>
+					<div class="frame f2"></div>
+					<div class="frame f3"></div>
+					<div class="frame f4"></div>
+
+					<div class="frame f1"></div>
+					<div class="frame f2"></div>
+					<div class="frame f3"></div>
+					<div class="frame f4"></div>
 				</div>
-			</div>
+			</section>
 
-			<div class="nav-links">
-				<a href="#">Оплата</a>
-				<a href="#">Доставка</a>
-				<a href="#">Контакты</a>
-			</div>
-		</nav>
+			<!-- CATEGORY GRID -->
+			<section class="category-grid">
+				<!-- твои карточки -->
+			</section>
 
-		<!-- HERO -->
-		<section class="hero">
-			<div class="track">
-				<div class="frame f1"></div>
-				<div class="frame f2"></div>
-				<div class="frame f3"></div>
-				<div class="frame f4"></div>
+			<!-- PRODUCTS -->
+			<main class="products" id="products"></main>
 
-				<div class="frame f1"></div>
-				<div class="frame f2"></div>
-				<div class="frame f3"></div>
-				<div class="frame f4"></div>
-			</div>
-		</section>
+		</div> <!-- content -->
 
-		<!-- CATEGORY GRID -->
-		<section class="category-grid">
+	</div> <!-- layout -->
 
-			<div class="category-card">
-				<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
-				<div class="category-info">Двухъярусные</div>
-			</div>
+	<!-- HERO -->
+	<section class="hero">
+		<div class="track">
+			<div class="frame f1"></div>
+			<div class="frame f2"></div>
+			<div class="frame f3"></div>
+			<div class="frame f4"></div>
 
-			<div class="category-card">
-				<img src="https://images.unsplash.com/photo-1616627981450-2b3d9c4d5c6e">
-				<div class="category-info">Чердаки</div>
-			</div>
+			<div class="frame f1"></div>
+			<div class="frame f2"></div>
+			<div class="frame f3"></div>
+			<div class="frame f4"></div>
+		</div>
+	</section>
 
-			<div class="category-card">
-				<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
-				<div class="category-info">Одноярусные</div>
-			</div>
+	<!-- CATEGORY GRID -->
+	<section class="category-grid">
 
-			<div class="category-card">
-				<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
-				<div class="category-info">Детские</div>
-			</div>
+		<div class="category-card">
+			<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
+			<div class="category-info">Двухъярусные</div>
+		</div>
 
-			<div class="category-card">
-				<img src="https://images.unsplash.com/photo-1560449752-5b8f1e3d5e6c">
-				<div class="category-info">С ящиками</div>
-			</div>
+		<div class="category-card">
+			<img src="https://images.unsplash.com/photo-1616627981450-2b3d9c4d5c6e">
+			<div class="category-info">Чердаки</div>
+		</div>
 
-			<div class="category-card">
-				<img src="https://images.unsplash.com/photo-1578898887932-dce23a595ad4">
-				<div class="category-info">Дизайнерские</div>
-			</div>
+		<div class="category-card">
+			<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
+			<div class="category-info">Одноярусные</div>
+		</div>
 
-		</section>
+		<div class="category-card">
+			<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
+			<div class="category-info">Детские</div>
+		</div>
 
-		<!-- PRODUCTS -->
-		<main class="products" id="products"></main>
+		<div class="category-card">
+			<img src="https://images.unsplash.com/photo-1560449752-5b8f1e3d5e6c">
+			<div class="category-info">С ящиками</div>
+		</div>
+
+		<div class="category-card">
+			<img src="https://images.unsplash.com/photo-1578898887932-dce23a595ad4">
+			<div class="category-info">Дизайнерские</div>
+		</div>
+
+	</section>
+
+	<!-- PRODUCTS -->
+	<main class="products" id="products"></main>
 
 	</div>
+
 
 	<!-- FOOTER -->
 	<footer class="footer">

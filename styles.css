@@ -145,3 +145,73 @@ body {
   padding: 20px;
   margin-top: auto;
 }
+
+/* LAYOUT */
+.layout {
+  display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 30%;
+  min-width: 250px;
+  background: #f7f7f7;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+}
+
+.menu-group {
+  margin-bottom: 20px;
+}
+
+.menu-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.sidebar a:hover {
+  color: red;
+}
+
+/* CONTENT */
+.content {
+  width: 70%;
+}
+
+/* подгоняем твои блоки */
+.category-grid {
+  padding: 20px;
+}
+
+.products {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+}

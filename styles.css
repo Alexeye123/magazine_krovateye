@@ -241,6 +241,13 @@ body {
   padding: 20px;
 }
 
+/* PRODUCTS GRID */
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  padding: 25px;
+}
 
 @media (max-width: 900px) {
   .layout {
@@ -260,14 +267,6 @@ body {
   }
   .page {
   flex: 1;
-}
-
-/* PRODUCTS GRID */
-.products {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-  padding: 25px;
 }
 
 /* CARD */

@@ -189,15 +189,19 @@ function render() {
     el.className = "card";
 
     el.innerHTML = `
-      <div class="card-img">
-        <img src="${p.image}">
-      </div>
+  <div class="card-img">
+    <img src="${p.image}">
+  </div>
 
-      <div class="card-info">
-        <h3>${p.name}</h3>
-        <p class="price">${p.price} ₽</p>
-      </div>
-    `;
+  <div class="card-info">
+    <h3>${p.name}</h3>
+
+    <div class="price">
+      <span class="old">${p.oldPrice} ₽</span>
+      <span class="new">${p.price} ₽</span>
+    </div>
+  </div>
+`;
 
     container.appendChild(el);
   });

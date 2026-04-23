@@ -74,16 +74,16 @@ body {
 
 .track {
   display: flex;
-  width: 800%; /* важно для плавности */
+  width: 200%; /* важно для плавности */
   height: 100%;
   animation: fly 20s linear infinite;
 }
 
 .frame {
-	min-width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
+  min-width: 25%;
 }
 
 /* КАРТИНКИ */
@@ -242,4 +242,7 @@ body {
   .products {
     grid-template-columns: 1fr;
   }
+  .page {
+  flex: 1;
+}
 }

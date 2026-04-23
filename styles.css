@@ -10,17 +10,22 @@ body {
   min-height: 100vh;
 }
 
-.page {
-  flex: 1;
-}
-
 /* TOPBAR */
 .topbar {
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
   color: white;
-  background: linear-gradient(90deg, red, orange);
+
+  background: linear-gradient(90deg, red, orange, purple, blue);
+  background-size: 300%;
+
+  animation: gradientMove 5s infinite linear;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0%; }
+  100% { background-position: 100%; }
 }
 
 /* HEADER */
@@ -69,8 +74,9 @@ body {
 
 .track {
   display: flex;
-  width: 200%;
+  width: 800%; /* важно для плавности */
   height: 100%;
+  animation: fly 40s linear infinite;
 }
 
 .frame {
@@ -82,19 +88,19 @@ body {
 
 /* КАРТИНКИ */
 .f1 {
-  background-image: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511');
+  background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470'); /* горы */
 }
 
 .f2 {
-  background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85');
+  background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee'); /* озеро */
 }
 
 .f3 {
-  background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2');
+  background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9'); /* лес/река */
 }
 
 .f4 {
-  background-image: url('https://images.unsplash.com/photo-1578898887932-dce23a595ad4');
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e'); /* водопад/океан */
 }
 
 @keyframes fly {
@@ -168,6 +174,7 @@ body {
 /* LAYOUT */
 .layout {
   display: flex;
+  flex: 1;
 }
 
 /* SIDEBAR */

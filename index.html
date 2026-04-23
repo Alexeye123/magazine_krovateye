@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<>
 
 	<!-- TOPBAR -->
 	<div class="topbar">
@@ -100,119 +100,62 @@
 
 		</div> <!-- content -->
 
-	</div> <!-- layout -->
 
-	<!-- HERO -->
-	<section class="hero">
-		<div class="track">
-			<div class="frame f1"></div>
-			<div class="frame f2"></div>
-			<div class="frame f3"></div>
-			<div class="frame f4"></div>
+		<!-- FOOTER -->
+		<footer class="footer">
+			<div class="footer-inner">
 
-			<div class="frame f1"></div>
-			<div class="frame f2"></div>
-			<div class="frame f3"></div>
-			<div class="frame f4"></div>
-		</div>
-	</section>
+				<div class="footer-grid">
+					<div>
+						<div class="footer-title">Каталог</div>
+						<a href="#">Кровати</a>
+						<a href="#">Матрасы</a>
+					</div>
 
-	<!-- CATEGORY GRID -->
-	<section class="category-grid">
+					<div>
+						<div class="footer-title">Покупателям</div>
+						<a href="#">Доставка</a>
+						<a href="#">Оплата</a>
+					</div>
 
-		<div class="category-card">
-			<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
-			<div class="category-info">Двухъярусные</div>
-		</div>
+					<div>
+						<div class="footer-title">Компания</div>
+						<a href="#">О нас</a>
+					</div>
 
-		<div class="category-card">
-			<img src="https://images.unsplash.com/photo-1616627981450-2b3d9c4d5c6e">
-			<div class="category-info">Чердаки</div>
-		</div>
-
-		<div class="category-card">
-			<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
-			<div class="category-info">Одноярусные</div>
-		</div>
-
-		<div class="category-card">
-			<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
-			<div class="category-info">Детские</div>
-		</div>
-
-		<div class="category-card">
-			<img src="https://images.unsplash.com/photo-1560449752-5b8f1e3d5e6c">
-			<div class="category-info">С ящиками</div>
-		</div>
-
-		<div class="category-card">
-			<img src="https://images.unsplash.com/photo-1578898887932-dce23a595ad4">
-			<div class="category-info">Дизайнерские</div>
-		</div>
-
-	</section>
-
-	<!-- PRODUCTS -->
-	<main class="products" id="products"></main>
-
-	</div>
-
-
-	<!-- FOOTER -->
-	<footer class="footer">
-		<div class="footer-inner">
-
-			<div class="footer-grid">
-				<div>
-					<div class="footer-title">Каталог</div>
-					<a href="#">Кровати</a>
-					<a href="#">Матрасы</a>
+					<div>
+						<div class="footer-title">Контакты</div>
+						<a href="#">+7 (999) 123-45-67</a>
+					</div>
 				</div>
 
-				<div>
-					<div class="footer-title">Покупателям</div>
-					<a href="#">Доставка</a>
-					<a href="#">Оплата</a>
+				<div class="footer-bottom">
+					© Магазин кроватей 2026
 				</div>
 
-				<div>
-					<div class="footer-title">Компания</div>
-					<a href="#">О нас</a>
-				</div>
-
-				<div>
-					<div class="footer-title">Контакты</div>
-					<a href="#">+7 (999) 123-45-67</a>
-				</div>
 			</div>
+		</footer>
 
-			<div class="footer-bottom">
-				© Магазин кроватей 2026
-			</div>
+		<script>
+			const products = [
+				{ id: 1, name: "Кровать Лофт", price: 12000, oldPrice: 15000, image: "https://via.placeholder.com/300" },
+				{ id: 2, name: "Кровать Минимал", price: 18000, oldPrice: 22000, image: "https://via.placeholder.com/300" },
+				{ id: 3, name: "Кровать Дабл", price: 25000, oldPrice: 30000, image: "https://via.placeholder.com/300" },
+				{ id: 4, name: "Кровать Премиум", price: 32000, oldPrice: 40000, image: "https://via.placeholder.com/300" },
+				{ id: 5, name: "Кровать Soft", price: 21000, oldPrice: 26000, image: "https://via.placeholder.com/300" },
+				{ id: 6, name: "Кровать Lux", price: 28000, oldPrice: 35000, image: "https://via.placeholder.com/300" }
+			];
 
-		</div>
-	</footer>
+			let cart = 0;
 
-	<script>
-		const products = [
-			{ id: 1, name: "Кровать Лофт", price: 12000, oldPrice: 15000, image: "https://via.placeholder.com/300" },
-			{ id: 2, name: "Кровать Минимал", price: 18000, oldPrice: 22000, image: "https://via.placeholder.com/300" },
-			{ id: 3, name: "Кровать Дабл", price: 25000, oldPrice: 30000, image: "https://via.placeholder.com/300" },
-			{ id: 4, name: "Кровать Премиум", price: 32000, oldPrice: 40000, image: "https://via.placeholder.com/300" },
-			{ id: 5, name: "Кровать Soft", price: 21000, oldPrice: 26000, image: "https://via.placeholder.com/300" },
-			{ id: 6, name: "Кровать Lux", price: 28000, oldPrice: 35000, image: "https://via.placeholder.com/300" }
-		];
+			function render() {
+				const container = document.getElementById("products");
 
-		let cart = 0;
+				products.forEach(p => {
+					const el = document.createElement("div");
+					el.className = "card";
 
-		function render() {
-			const container = document.getElementById("products");
-
-			products.forEach(p => {
-				const el = document.createElement("div");
-				el.className = "card";
-
-				el.innerHTML = `
+					el.innerHTML = `
           <div class="badge">-${Math.round((1 - p.price / p.oldPrice) * 100)}%</div>
           <img src="${p.image}">
           <h3>${p.name}</h3>
@@ -220,18 +163,18 @@
           <button onclick="addToCart()">В корзину</button>
         `;
 
-				container.appendChild(el);
-			});
-		}
+					container.appendChild(el);
+				});
+			}
 
-		function addToCart() {
-			cart++;
-			document.getElementById("cart").innerText = "🛒 " + cart;
-		}
+			function addToCart() {
+				cart++;
+				document.getElementById("cart").innerText = "🛒 " + cart;
+			}
 
-		render();
-	</script>
+			render();
+		</script>
 
-</body>
+		</body>
 
 </html>

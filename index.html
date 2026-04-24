@@ -190,9 +190,7 @@ let cart = 0;
 function render() {
   const container = document.getElementById("products");
   container.innerHTML = "";
-  onmouseover="changeImage(${p.id}, '${c}')"
-onmouseout="resetImage(${p.id})"
-style="background: ${colorMap[c]}"
+  
   products.forEach(p => {
     const el = document.createElement("div");
     el.className = "card";

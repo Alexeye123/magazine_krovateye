@@ -138,18 +138,20 @@ body {
 }
 
 /* PRODUCTS */
-.products {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+#products {
+  display: flex;
   gap: 20px;
   padding: 20px;
 }
 
 .card {
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
-  position: relative;
+  min-width: 280px;
+  flex-shrink: 0;
+}
+
+.carousel {
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .badge {

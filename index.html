@@ -252,28 +252,11 @@ function resetImage(id) {
 render();
 
 const carousel = document.getElementById("carousel");
-const track = document.getElementById("products");
 
-let targetX = 0;
-let currentX = 0;
-
-carousel.addEventListener("mousemove", (e) => {
-  const rect = carousel.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const percent = x / rect.width;
-
-  const maxScroll = track.scrollWidth - rect.width;
-  targetX = -maxScroll * percent;
+carousel.addEventListener("wheel", (e) => {
+  e.preventDefault();
+  carousel.scrollLeft += e.deltaY;
 });
-
-// плавность (магия UX)
-function animate() {
-  currentX += (targetX - currentX) * 0.08;
-  track.style.transform = `translateX(${currentX}px)`;
-  requestAnimationFrame(animate);
-}
-
-animate();
 </script>
 
 </body>

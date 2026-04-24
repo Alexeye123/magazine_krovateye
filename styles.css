@@ -337,3 +337,25 @@ body {
 .card button:hover {
   background: #444;
 }
+
+.colors {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.color {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-size: cover;
+  background-position: center;
+  transition: 0.2s;
+}
+
+.color:hover {
+  transform: scale(1.2);
+  border-color: black;
+}

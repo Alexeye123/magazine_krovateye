@@ -126,7 +126,9 @@
 			</section>
 
 			<!-- PRODUCTS -->
-			<main class="products" id="products"></main>
+<div class="carousel" id="carousel">
+  <div class="carousel-track" id="products"></div>
+</div>
 
 		</div> <!-- content -->
 	</div> <!--layot-->
@@ -248,6 +250,30 @@ function resetImage(id) {
 }
 
 render();
+
+const carousel = document.getElementById("carousel");
+const track = document.getElementById("products");
+
+let targetX = 0;
+let currentX = 0;
+
+carousel.addEventListener("mousemove", (e) => {
+  const rect = carousel.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const percent = x / rect.width;
+
+  const maxScroll = track.scrollWidth - rect.width;
+  targetX = -maxScroll * percent;
+});
+
+// плавность (магия UX)
+function animate() {
+  currentX += (targetX - currentX) * 0.08;
+  track.style.transform = `translateX(${currentX}px)`;
+  requestAnimationFrame(animate);
+}
+
+animate();
 </script>
 
 </body>

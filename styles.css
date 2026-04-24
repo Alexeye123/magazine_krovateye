@@ -359,3 +359,42 @@ body {
   transform: scale(1.2);
   border-color: black;
 }
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 30px 0;
+
+  /* мягкий фон (релакс, не раздражает) */
+  background: linear-gradient(180deg, #f5f5f5, #eeeeee);
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  padding: 0 20px;
+  will-change: transform;
+}
+
+/* карточки в линию */
+.card {
+  min-width: 280px;
+  flex-shrink: 0;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.color {
+  border: 1px solid #ddd;
+}
+
+.color:hover {
+  transform: scale(1.25);
+  border-color: #333;
+}

@@ -197,7 +197,7 @@ function render() {
 
     el.innerHTML = `
       <div class="img-wrap">
-        <img src="img/products/-1/${p.id}a.jpg" id="img-${p.id}">
+        <img src="img/products/${p.id}/${p.id}a.jpg" id="img-${p.id}">
       </div>
 
       <div class="card-info">
@@ -226,7 +226,7 @@ function render() {
 
 function changeImage(id, color) {
   const img = document.getElementById(`img-${id}`);
-  img.src = `img/products/-1/${id}${color}.jpg`;
+  img.src = `img/products/${id}/${id}${color}.jpg`;
 }
 
 function getColor(i) {
@@ -244,7 +244,7 @@ function addToCart() {
 
 function resetImage(id) {
   const img = document.getElementById(`img-${id}`);
-  img.src = `img/products/-1/${id}a.jpg`;
+  img.src = `img/products/${id}/${id}a.jpg`;
 }
 
 render();

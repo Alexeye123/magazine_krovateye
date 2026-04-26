@@ -255,8 +255,10 @@ render();
 const carousel = document.getElementById("carousel");
 
 carousel.addEventListener("wheel", (e) => {
-  e.preventDefault();
-  carousel.scrollLeft += e.deltaY;
+  if (window.innerWidth > 768) {
+    e.preventDefault();
+    carousel.scrollLeft += e.deltaY;
+  }
 });
 </script>
 

@@ -152,6 +152,11 @@ body {
 .carousel {
   overflow-x: auto;
   overflow-y: hidden;
+
+  -webkit-overflow-scrolling: touch; /* плавность на iPhone */
+  scroll-behavior: smooth;
+
+  touch-action: pan-x; /* РАЗРЕШАЕМ горизонтальный свайп */
 }
 
 .badge {

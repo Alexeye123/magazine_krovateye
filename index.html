@@ -9,6 +9,8 @@
 </head>
 
 <body>
+	<input type="file" id="uploader" multiple>
+<button onclick="processImages()">Сжать и скачать</button>
 	<div class="page">
 	<!-- TOPBAR -->
 	<div class="topbar">
@@ -248,6 +250,45 @@ function addToCart() {
 function resetImage(id) {
   const img = document.getElementById(`img-${id}`);
   img.src = `img/products/${id}/${id}a.jpg`;
+}
+
+function processImages() {
+  const files = document.getElementById("uploader").files;
+
+  [...files].forEach(file => {
+    const img = new Image();
+    const reader = new FileReader();
+
+    reader.onload = e => {
+      img.src = e.target.result;
+    };
+
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+
+      const size = 800; // нужный размер
+      canvas.width = size;
+      canvas.height = size;
+
+      const ctx = canvas.getContext("2d");
+
+      // центрируем и обрезаем
+      const min = Math.min(img.width, img.height);
+      const sx = (img.width - min) / 2;
+      const sy = (img.height - min) / 2;
+
+      ctx.drawImage(img, sx, sy, min, min, 0, 0, size, size);
+
+      canvas.toBlob(blob => {
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = file.name;
+        a.click();
+      }, "image/jpeg", 0.8);
+    };
+
+    reader.readAsDataURL(file);
+  });
 }
 
 render();

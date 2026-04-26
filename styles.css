@@ -144,9 +144,20 @@ body {
 }
 
 .card {
-  /*min-width: 280px;*/
   flex-shrink: 0;
   width: clamp(220px, 30vw, 280px);
+
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+
+  transition: 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 
@@ -251,29 +262,12 @@ body {
 
 
 
-  .content {
-    width: 100%;
-  }
-
-  .products {
-    grid-template-columns: 1fr;
-  }
   .page {
   flex: 1;
 }
 
 /* CARD */
-.card {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: 0.2s;
-}
 
-/* HOVER как в магазинах */
-.card:hover {
-  transform: translateY(-3px);
-}
 
 /* IMAGE */
 .img-wrap {
@@ -361,6 +355,7 @@ body {
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   touch-action: pan-x;
+  scrollbar-width: none; /* Firefox */
 
   padding: 30px 0;
   background: linear-gradient(180deg, #f5f5f5, #eeeeee);
@@ -419,9 +414,44 @@ body {
 }
 
 .carousel {
-  cursor: grab;
+  scrollbar-width: none; /* Firefox */
 }
 
-.carousel.dragging {
-  cursor: grabbing;
+.carousel::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+@media (max-width: 900px) {
+
+  .sidebar {
+    display: none;
+  }
+
+  .layout {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .header input {
+    width: 100%;
+    order: 3;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
 }

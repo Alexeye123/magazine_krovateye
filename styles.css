@@ -149,15 +149,7 @@ body {
   width: clamp(220px, 30vw, 280px);
 }
 
-.carousel {
-  overflow-x: auto;
-  overflow-y: hidden;
 
-  -webkit-overflow-scrolling: touch; /* плавность на iPhone */
-  scroll-behavior: smooth;
-
-  touch-action: pan-x; /* РАЗРЕШАЕМ горизонтальный свайп */
-}
 
 .badge {
   position: absolute;
@@ -187,7 +179,12 @@ body {
 
 .sidebar {
   width: 260px;
-  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
 }
 
 .content {
@@ -252,15 +249,7 @@ body {
   padding: 25px;
 }
 
-@media (max-width: 900px) {
-  .sidebar {
-    display: none;
-  }
-}
 
-  .sidebar {
-    width: 100%;
-  }
 
   .content {
     width: 100%;
@@ -366,12 +355,14 @@ body {
 
 .carousel {
   width: 100%;
-  overflow: hidden;
-  position: relative;
-  padding: 30px 0;
-  scroll-behavior: smooth;
+  overflow-x: auto;
+  overflow-y: hidden;
 
-  /* мягкий фон (релакс, не раздражает) */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  touch-action: pan-x;
+
+  padding: 30px 0;
   background: linear-gradient(180deg, #f5f5f5, #eeeeee);
 }
 
@@ -384,10 +375,8 @@ body {
 
 /* карточки в линию */
 .card {
-  min-width: 280px;
   flex-shrink: 0;
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  width: clamp(220px, 30vw, 280px);
 }
 
 .card:hover {
@@ -404,17 +393,7 @@ body {
   border-color: #333;
 }
 
-@media (max-width: 900px) {
 
-  .layout {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .sidebar {
-    width: 100%;
-    order: 2;
-  }
 
   .content {
     order: 1;
@@ -439,4 +418,10 @@ body {
   display: block;
 }
 
+.carousel {
+  cursor: grab;
+}
+
+.carousel.dragging {
+  cursor: grabbing;
 }
